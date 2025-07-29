@@ -11,7 +11,7 @@ Este es el repositorio de mi primer proyecto de portafolio, una landing page com
 ## 🚀 Ver el Proyecto en Vivo
 
 Puedes ver la página funcionando en el siguiente enlace:
-**[Haz clic aquí para ver el proyecto en vivo](https://espejoriveros.github.io/Costumbre-Landing-Page/)**
+**[Haz clic aquí para ver el proyecto en vivo](https://espejontiveros.github.io/Costumbre-Landing-Page/)**
 
 ---
 
