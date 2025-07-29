@@ -1,0 +1,593 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Costumbre de Pájaro</title>
+    <style>
+        /* --- Importamos las tipografías de Google Fonts --- */
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Nunito+Sans:wght@400;600&display=swap');
+        
+        /* --- Paleta de Colores --- */
+        :root {
+            --verde-principal: #132B13; 
+            --rojo-acento: #791d1d; 
+            --dorado-acento: #C9B084;
+            --negro-texto: #090C02;
+            --blanco-base: #FFFFFF;
+            --blanco-hueso: #eceae7;
+        }
+
+        /* --- Estilos Generales --- */
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: 'Nunito Sans', sans-serif; background-color: var(--blanco-base); color: var(--negro-texto); }
+        h1, h2, h3, .logo { font-family: 'Playfair Display', serif; }
+
+        /* --- Header --- */
+        header {
+            background-color: #593032;
+            padding: 1.5rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        .logo { font-size: 2rem; color: var(--blanco-base); text-decoration: none; letter-spacing: 2px; }
+        .nav-links { list-style: none; display: flex; gap: 30px; }
+        .nav-links a { text-decoration: none; color: var(--blanco-base); font-family: 'Playfair Display', serif; font-size: 1rem; text-transform: uppercase; letter-spacing: 1.5px; transition: color 0.3s ease; cursor: pointer;}
+        .nav-links a:hover { color: var(--dorado-acento); }
+
+        /* --- Sección Hero --- */
+        .hero { width: 100%; height: 70vh; overflow: hidden; }
+        .hero img { width: 100%; height: 100%; object-fit: cover; display: block; }
+        
+.hero {
+    /* ... tus estilos actuales ... */
+    opacity: 0;
+    animation: fadeIn 0.8s ease-out 0.5s forwards;
+}
+
+        /* --- NUEVO: Título de Sección General --- */
+        .section-title {
+            font-size: 3rem;
+            margin-bottom: 2rem;
+            color: #875053;
+            text-align: center;
+            letter-spacing: 1.5px;
+            margin-top: 2rem; /* Añadimos espacio arriba */
+            font-family:'Times New Roman', Times, serif;
+        }
+        
+        /* --- Contenedor Principal (Catálogo y Columna Derecha) --- */
+        .main-container {
+            display: flex;
+            flex-wrap: wrap;
+            padding: 0 5% 4rem 5%; /* Ajustamos el padding */
+            gap: 3rem;
+        }
+
+        /* --- Columna Izquierda: Catálogo --- */
+        .catalog-section {
+            flex: 2; 
+        }
+
+        /* --- Contenedor para la Columna Derecha --- */
+        .right-column {
+            flex: 1; 
+            min-width: 350px;
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        .contact-box {
+    flex-grow: 1;
+}
+
+        /* --- Caja "Sobre la Marca" --- */
+        .about-section {
+            padding: 2.5rem;
+            background-color: var(--blanco-base); 
+            color: var(--negro-texto);
+            border-radius: 15px;
+            border: 3px solid var(--rojo-acento); 
+        }
+        .about-section p { font-size: 1.1rem; line-height: 1.8; margin-bottom: 1rem; line-height: 1.3; /* <-- Reduce este número para juntar las líneas */
+  text-align: justify; /* <-- Esto justifica el texto */}
+        .about-section p:last-child { margin-bottom: 0; }
+        .about-section p:first-of-type::first-letter { font-family: 'Playfair Display', serif; font-size: 4.5rem; float: left; margin-right: 10px; line-height: 0.8; color: var(--rojo-acento); }
+        
+/* ================================================== */
+/* === REGLA ÚNICA Y DEFINITIVA PARA LA CAJA DE CONTACTO === */
+/* ================================================== */
+.contact-box {
+    /* --- Propiedades de diseño que ya tenías --- */
+    padding: 2.5rem;
+    background-color: var(--blanco-hueso);
+    border-radius: 15px;
+    text-align: center;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.09); /* La sombra que ya habíamos añadido */
+
+    /* --- Propiedad para que se estire y llene el espacio --- */
+    flex-grow: 1; 
+
+    /* --- Propiedades para centrar su propio contenido --- */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.contact-box h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.2rem;        /* CAMBIO: Título más grande */
+    margin-bottom: 0.5rem;    /* CAMBIO: Margen ajustado */
+}
+
+/* NUEVA REGLA: Párrafo de la caja de contacto */
+.contact-box p {
+    font-family: 'Nunito Sans', sans-serif;
+    line-height: 1.6;
+    margin-bottom: 2rem;      /* CAMBIO: Más espacio abajo */
+}
+
+.contact-form input,
+.contact-form textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    margin-bottom: 1rem;
+    font-family: 'Nunito Sans', sans-serif;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+    outline: none;
+    border-color: var(--rojo-acento);
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.contact-form textarea {
+    min-height: 100px;
+    resize: vertical;
+}
+
+/* ESTE ES EL CÓDIGO NUEVO Y CORRECTO QUE DEBES PEGAR */
+
+/* --- REGLA DEFINITIVA PARA EL CHECKBOX --- */
+.contact-form .newsletter-opt-in {
+    display: flex;
+    align-items: center; 
+    justify-content: flex-start; 
+    width: 100%; 
+    gap: 10px;
+    margin-bottom: 1.5rem;
+    font-size: 0.9rem;
+}
+
+/* --- NUEVA REGLA PARA CONTROLAR EL CHECKBOX --- */
+.contact-form .newsletter-opt-in input[type="checkbox"] {
+    /* Le prohíbe crecer y ocupar más espacio del necesario */
+    flex-grow: 0; 
+
+    /* Le quita cualquier ancho forzado y le devuelve su tamaño natural */
+    width: auto;  
+}
+
+/* AJUSTE FINO para centrar verticalmente el texto del checkbox */
+.contact-form .newsletter-opt-in label {
+    position: relative;
+bottom: 8px; /* <-- ¡Juega con este valor! Prueba con 1px, 2px o 3px */
+}
+
+.contact-form button {
+    padding: 12px 30px;
+    border: none;
+    border-radius: 50px;
+    background-color: var(--negro-texto);
+    color: var(--blanco-base);
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.contact-form button:hover {
+    background-color: var(--rojo-acento);
+}
+
+.grid-item:hover {
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12); /* Hacemos la sombra un poco más pronunciada */
+}
+
+/* Sombra para las cajas de la columna derecha */
+.about-section,
+.contact-box {
+    /* ... tus estilos actuales ... */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.09);
+}
+
+/* Para los enlaces del header */
+.nav-links a {
+    /* ... tus estilos actuales ... */
+    transition: color 0.3s ease;
+}
+
+/* Para el botón del formulario */
+.contact-form button {
+    /* ... tus estilos actuales ... */
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.contact-form button:hover {
+    background-color: #6b7130; 
+    color: var(--blanco-hueso);             
+    transform: scale(1.05); 
+}
+
+/* 1. Definimos la animación */
+@keyframes fadeInSlideUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* 2. Aplicamos la animación a las secciones principales */
+.catalog-section, 
+.right-column {
+    animation: fadeInSlideUp 0.8s ease-out forwards;
+}
+
+/* --- Footer --- */
+footer {
+    background-color: var(--negro-texto);
+    color: var(--blanco-hueso);
+    padding: 3rem 5% 2rem 5%; /* Aumentamos un poco el padding superior */
+    text-align: center;
+}
+
+/* CORRECCIÓN: Estilos para los íconos */
+.contact-links {
+    margin-bottom: 1.5rem; 
+}
+.contact-links a {
+    color: var(--blanco-hueso);
+    text-decoration: none;
+    font-size: 1.8rem;
+    margin: 0 15px;
+    transition: color 0.3s ease;
+}
+.contact-links a:hover {
+    color: var(--dorado-acento);
+}
+/* Fin de los estilos de íconos */
+
+.footer-nav a { 
+    color: var(--blanco-hueso); 
+    text-decoration: none; 
+    margin: 0 10px; 
+    font-size: 0.9rem; 
+}
+.copyright { 
+    margin-top: 1.5rem; /* Un poco más de espacio */
+    font-size: 0.8rem; 
+    opacity: 0.6; 
+}
+
+/* ============================================== */
+/* === ESTILOS UNIFICADOS PARA LA GALERÍA === */
+/* ============================================== */
+
+/* El contenedor de la grilla */
+.catalog-grid { 
+    display: grid; 
+    grid-template-columns: repeat(3, 1fr); 
+    gap: 30px; /* Aumenté un poco el espacio para que respire mejor */
+}
+
+/* El estilo base para CADA item de la grilla */
+.grid-item {
+    position: relative;
+    overflow: visible;
+    border-radius: 10px;
+    background-color: var(--blanco-hueso);
+    aspect-ratio: 3 / 4;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08); /* Sombra suave */
+    transition: box-shadow 0.4s ease; /* Transición solo para la sombra del contenedor */
+    cursor: pointer;
+}
+
+/* El estilo base para TODAS las imágenes dentro de la grilla */
+.grid-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    transition: transform 0.4s ease; /* Transición solo para el zoom de la imagen */
+    border-radius: 10px;
+}
+
+/* --- REGLA DE ZOOM POR DEFECTO --- */
+/* Se aplica a la 'img' en todas las que NO tengan la clase 'no-zoom' */
+.grid-item:hover img {
+    transform: scale(1.05);
+}
+
+/* --- REGLA DE ANULACIÓN --- */
+/* Anula el zoom específicamente en los items con la clase '.no-zoom' */
+.grid-item.no-zoom:hover img {
+    transform: none;
+}
+
+/* --- EFECTO HOVER ALTERNATIVO para los .no-zoom --- */
+/* Les damos un 'pop' visual solo con la sombra */
+.grid-item.no-zoom:hover {
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+/* ------------------------------------------- */
+
+@keyframes fadeIn {
+    from { 
+        opacity: 0; 
+    }
+    to { 
+        opacity: 1; 
+    }
+}
+
+/* === ESTILOS PARA EL MÓDULO DE MÚSICA (LAYOUT HORIZONTAL-BIO) === */
+
+.music-module {
+    margin-top: 30px;
+}
+
+.music-module h4 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5rem;
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+/* El contenedor que pone las 4 canciones en fila */
+.song-list {
+    display: flex;
+    justify-content: space-between; /* Distribuye el espacio entre los 4 items */
+    border: 1px solid #C9B084;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12); 
+}
+
+/* CADA UNA de las 4 canciones */
+.song-item {
+    display: flex; /* ¡La clave! Pone sus hijos (imagen y texto) en fila */
+    align-items: center; /* Centra verticalmente la imagen con el bloque de texto */
+    flex-basis: 23%; /* Le da a cada canción un ancho base del 23% para que quepan 4 */
+    text-decoration: none;
+    color: inherit;
+    padding: 8px;
+    border-radius: 8px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.song-item:hover {
+    transform: scale(1.08); /* Se agranda un poco */
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15); /* Sombra más pronunciada */
+    z-index: 10; /* Se pone por encima de los demás */
+  }  
+
+/* La imagen redonda del álbum */
+.album-cover {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    object-fit: cover;
+    flex-shrink: 0; /* Evita que la imagen se encoja */
+}
+
+/* El bloque de texto a la derecha de la imagen */
+.song-info {
+    margin-left: 12px; /* Espacio entre la imagen y el texto */
+}
+
+.album-title {
+    font-weight: 600;
+    font-size: 0.9rem;
+    margin: 0;
+    line-height: 1.2;
+}
+
+.artist-name {
+    font-size: 0.8rem;
+    opacity: 0.7;
+    margin: 0;
+}
+
+.año-publicación {
+    font-size: 0.7rem;
+    opacity: 0.7;
+    margin: 0;
+}
+
+#Cinema-Club {
+    font-size: 0.65rem;
+    opacity: 0.7;
+    margin: 0;
+}
+
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+</head>
+<body>
+
+    <header>
+        <a href="#" class="logo">Costumbre de Pájaro</a>
+        <nav>
+            <ul class="nav-links">
+                <li><a href="#catalog">Catálogo</a></li>
+                <li><a href="#about">Nosotros</a></li>
+                <li><a href="#contact">Contacto</a></li>
+                <li><a href="#">Manifiesto</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero">
+            <img src="Hero.png" alt="Modelo principal de la colección Costumbre de Pájaro">
+        </section>
+        
+        <h2 class="section-title"></h2>
+        <h2 class="section-title" id="title-animation"></h2>
+        
+        <div class="main-container">
+            <section class="catalog-section">
+                <div class="catalog-grid">
+                    <div class="grid-item"><img src="1.png" alt="Prenda 1"></div>
+                    <div class="grid-item"><img src="2.png" alt="Prenda 2"></div>
+                    <div class="grid-item"><img src="3.png" alt="Prenda 3"></div>
+                    <div class="grid-item"><img src="4.png" alt="Prenda 4"></div>
+                    <div class="grid-item"><img src="5.png" alt="Prenda 5"></div>
+                    <div class="grid-item"><img src="6.png" alt="Prenda 6"></div>
+                </div>
+
+                <div class="music-module">
+    <h4>Lo que estamos escuchando...</h4>
+    <div class="song-list">
+        <a href="https://open.spotify.com/intl-es/album/2IsJL5SdD7FnplHSrlS6A0?si=3SUJO4qCRi2kLgKe2_fC_A" target="_blank" class="song-item">
+            <img src="Amador.jpg" alt="Cover del álbum" class="album-cover">
+            <div class="song-info">
+                <p class="album-title">Amador</p>
+                <p class="artist-name">Adanowsky</p>
+                <p class="año-publicación">2010</p>
+            </div>
+        </a>
+        <a href="https://open.spotify.com/intl-es/album/5FiDVzxLqGtYjF5yzmMoj4?si=gr04bEoDRFWnAlVDohm1EA" target="_blank" class="song-item">
+            <img src="Another-One.png" alt="Cover del álbum" class="album-cover">
+            <div class="song-info">
+                <p class="album-title">Another One</p>
+                <p class="artist-name">Mac Demarco</p>
+                <p class="año-publicación">2015</p>
+            </div>
+        </a>
+        <a href="https://open.spotify.com/intl-es/album/1IjxRo8rfMHfJbvuFEqAWo?si=p-yOLptqSJC6M81tSIgQCQ" target="_blank" class="song-item">
+            <img src="Tonada.jpeg" alt="Cover del álbum" class="album-cover">
+            <div class="song-info">
+                <p class="album-title">Tonadas</p>
+                <p class="artist-name">Simón Díaz</p>
+                <p class="año-publicación">1974</p>
+            </div>
+        </a>
+        <a href="https://open.spotify.com/intl-es/album/7DxmOS2dKJgTfLLRNOP4ch?si=6KjYnIsuSa2A-9zDq-FSxg" target="_blank" class="song-item">
+            <img src="Tourist-History.jpeg" alt="Cover del álbum" class="album-cover">
+            <div class="song-info">
+                <p class="album-title">Tourist History</p>
+                <p class="artist-name" id="Cinema-Club">Two Door Cinema Club</p>
+                <p class="año-publicación">2010</p>
+            </div>
+        </a>
+         <a href="https://open.spotify.com/intl-es/album/51wepZm3YvZfvFxiu7D5F8?si=4wrws2vVT8C3NieF8ssM_w" target="_blank" class="song-item">
+            <img src="Fuerza-Natural.jpg" alt="Cover del álbum" class="album-cover">
+            <div class="song-info">
+                <p class="album-title">Fuerza Natural</p>
+                <p class="artist-name">Gustavo Cerati</p>
+                <p class="año-publicación">2009</p>
+            </div>
+        </a>
+ 
+    </div>
+</div>
+            </section>
+            
+            <div class="right-column">
+                <section id="about" class="about-section">
+                    <p>Costumbre de Pájaro nace de un hilo invisible que une Córdoba y Buenos Aires. Somos dos amigas venezolanas, Bárbara y María José, unidas por el cariño, la distancia y una pasión compartida: la moda que cuenta historias.</p>
+                    <p>Empezamos este viaje con remeras como nuestros primeros lienzos, estampando en ellas el arte, la música y las ideas que nos mueven. Cada pieza es nueva, atemporal y diseñada para almas creativas que, como nosotras, buscan sentirse cómodas sin sacrificar un estilo único.</p>
+                    <p>Aspiramos a que Costumbre de Pájaro sea más que una tienda: un espacio cultural, un punto de encuentro. Un sueño que, esperamos, algún día nos reúna en el mismo lugar.</p>
+                    <p>Gracias por ser parte de nuestra historia.</p>
+                </section>
+                
+                    <section id="contact" class="contact-box">
+    <h3>¿Hablamos?</h3>
+    <p>Si tienes una idea, una propuesta o simplemente quieres charlar sobre arte y moda, este es nuestro nido.</p>
+    <form class="contact-form">
+        <input type="text" placeholder="Maria José" required>
+        <input type="email" placeholder="tuemail@ejemplo.com" required>
+        <input type="text" placeholder="Colaboración, sugerencia..." required>
+        <textarea placeholder="¡Hola, Bárbara! Me gustaría..." required></textarea>
+        <div class="newsletter-opt-in">
+            <input type="checkbox" id="newsletter" name="newsletter" checked>
+            <label for="newsletter">Me encantaría recibir novedades y chismesito de arte.</label>
+        </div>
+        <button type="submit">Únete a la bandada...</button>
+    </form>
+</section>
+            </div>
+        </div>
+    </main>
+    
+    <footer>
+        <div class="contact-links">
+                         <a href="mailto:costumbre.de.pajaro@gmail.com" title="Email"><i class="fas fa-envelope"></i></a>
+                         <a href="https://wa.me/5491125512391" target="_blank" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                         <a href="#" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
+                         <a href="#" target="_blank" title="TikTok"><i class="fab fa-tiktok"></i></a>
+                    </div>
+        <div class="footer-nav">
+            <a href="#">Inicio</a> | 
+            <a href="#">Catálogo</a> | 
+            <a href="#">Nosotros</a> | 
+            <a href="#">Manifiesto</a>
+        </div>
+        <p class="copyright">© 2025 Costumbre de Pájaro. Todos los derechos reservados.</p>
+    </footer>
+
+<script src="https://unpkg.com/typeit@8.7.1/dist/index.umd.js"></script>
+<script src="https://unpkg.com/typeit@8.7.1/dist/index.umd.js"></script>
+    
+   <script>
+    document.addEventListener('DOMContentLoaded', function () {
+        // 1. Buscamos el audio
+        const typewriterSound = document.getElementById('typewriter-sound');
+
+        // 2. Escuchamos el PRIMER clic en cualquier lugar de la página
+        document.body.addEventListener('click', function() {
+            // Cuando el usuario hace clic, le quitamos el silencio al audio
+            typewriterSound.muted = false;
+        }, { once: true }); // La opción { once: true } hace que esto solo ocurra una vez
+
+        // 3. Configuramos TypeIt como siempre
+        new TypeIt("#title-animation", {
+            strings: "Nuestra selección, tu próxima costumbre.",
+            speed: 55,
+            waitUntilVisible: true,
+            beforeChar: () => {
+                typewriterSound.currentTime = 0;
+                // Intentamos reproducir el sonido. Si aún está bloqueado, no mostrará error.
+                // Si ya fue desbloqueado por el clic, sonará.
+                typewriterSound.play().catch(e => {});
+            },
+        }).go();
+    });
+</script>
+
+<audio id="typewriter-sound" src="key-press.mp3" muted playsinline></audio>
+
+    <script src="https://unpkg.com/typeit@8.7.1/dist/index.umd.js"></script>
+    <script>
+        // Tu código JavaScript irá aquí
+    </script>
+</body>
+</html>
+
+</body>
+</html>
+
+</body>
+</html>
