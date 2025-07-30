@@ -1,3 +1,21 @@
+# "Costumbre de Pájaro" Landing Page
+
+This is the repository for my first portfolio project: a complete and responsive landing page for a fictional fashion brand with a strong visual identity.
+
+## ✨ Key Features
+
+- **Custom Design:** Created from scratch with HTML5 and CSS3.
+- **Modern Layout:** Built with Flexbox and CSS Grid to achieve a balanced and asymmetrical design.
+- **Interactivity:** Includes hover effects, subtle animations, and custom components built with JavaScript.
+
+## 🚀 View Live Project
+
+You can see the live page at the following link:
+**[https://espejoriveros.github.io/Costumbre-Landing-Page/](https://espejontiveros.github.io/Costumbre-Landing-Page/)**
+
+---
+<br>
+
 # Landing Page - Costumbre de Pájaro
 
 Este es el repositorio de mi primer proyecto de portafolio, una landing page completa y responsiva para una marca de moda ficticia con una fuerte identidad visual.
@@ -11,8 +29,8 @@ Este es el repositorio de mi primer proyecto de portafolio, una landing page com
 ## 🚀 Ver el Proyecto en Vivo
 
 Puedes ver la página funcionando en el siguiente enlace:
-**[Haz clic aquí para ver el proyecto en vivo](https://espejontiveros.github.io/Costumbre-Landing-Page/)**
+**[https://espejoriveros.github.io/Costumbre-Landing-Page/](https://espejontiveros.github.io/Costumbre-Landing-Page/)**
 
 ---
 
-*Este proyecto fue desarrollado como parte de mi viaje de aprendizaje para convertirme en una Desarrolladora Front-End.*
+*This project was developed as part of my learning journey to become a Front-End Developer.*
